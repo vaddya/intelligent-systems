@@ -1,0 +1,142 @@
+\include{settings}
+
+\begin{document}
+
+\include{title}
+
+\tableofcontents
+\newpage
+
+\section{Программа работы}
+
+\begin{enumerate}
+	\item На примере одной из экспертных систем ExSys Corvid\footnote{\url{http://www.exsys.com/demomain.html}} укажите содержание компонентов:
+	\begin{itemize}
+		\item Диалоговый компонент
+		\item База данных
+		\item База знаний
+		\item Решатель
+	\end{itemize}
+	\item Выполните лабораторные работы 1-6 из методических рекомендаций Д.И. Муромцев. Оболочка экспертных систем Exsys Corvid – СПб: СПб ГУ ИТМО, 2006. – 69 с.\footnote{\url{http://csd.faculty.ifmo.ru/dimour/ES/Corvid.pdf}}
+	\item По приведенному описанию ЭС разработайте статическую экспертную систему для нахождения характерных неисправностей прибора Диск-250 ДД и метода их решения. Прибор показывающий и регистрирующий Диск-250 ДД предназначен для измерения и регистрации силы тока, а также неэлектрических величин, преобразованных в силу тока. Данная ЭС предназначена для использования слесарями в целях быстрого обнаружения неисправности и ее устранения. Привести в отчете:
+	\begin{itemize}
+		\item Перечень переменных с описанием их типа и значений;
+		\item Дерево решений, разработанной Вами ЭС;
+		\item Базу знаний, разработанной Вами ЭС;
+		\item Интерфейс с пользователем (перечень вопросов, задаваемых пользователю).
+	\end{itemize}
+\end{enumerate}
+
+\newpage
+
+\section{Выполнение работы}
+
+\subsection{Компоненты экспертной системы}
+
+\begin{itemize}
+	\item Диалоговый компонент
+	\item База данных
+	\item База знаний
+	\item Решатель
+\end{itemize}
+
+\section{Лабораторные работы по CORVID}
+
+\subsection{Создание простейшей системы}
+
+В рамках данной работы создадим простейшую ЭС для принятия решения о замене лампочки в том случае, если она перегорела. На рис. \ref{fig:bulb_1} приведен логический блок разработанной ЭС.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{bulb_1}
+	\caption{Логический блок ЭС}
+	\label{fig:bulb_1}
+\end{figure}
+
+В листинге \ref{lst:bulb_1} приведен сгенерированный алгоритм работы ЭС.
+
+\begin{lstlisting}[label=lst:bulb_1, caption={Алгоритм работы ЭС}]
+IF:
+	Bulb in your house suddenly went out
+THEN:
+	Change the bulb: Confidence = 10
+
+IF:
+	Bulb in your house still working
+THEN:
+	Do nothing: Confidence = 10
+\end{lstlisting}
+
+На рис. \ref{fig:bulb_2} приведен пользовательский интерфейс ЭС.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{bulb_2}
+	\caption{Пользовательский интерфейс ЭС}
+	\label{fig:bulb_2}
+\end{figure}
+
+На рис. \ref{fig:bulb_3} приведены результаты работы ЭС.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{bulb_3}
+	\caption{Результаты работы ЭС}
+	\label{fig:bulb_3}
+\end{figure}
+
+Таким образом, в рамках работы изучен интерфейс Exsys CORVID на примере простейшей экспертной системы.
+
+\subsection{Улучшение интерфейса пользователя}
+
+В рамках данной работы рассмотрим возможности форматирования интерфейса в системе Exsys CORVID.
+
+На рис. \ref{fig:bulb_4} приведено изображение обновленного окна результатов. Был изменен шрифт и оставлено отображение только текстового значения.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{bulb_4}
+	\caption{Результаты работы ЭС}
+	\label{fig:bulb_4}
+\end{figure}
+
+Заменить отображение вопроса на изображение не удалось по известным только разработчикам Exsys CORVID причинам.
+
+\subsection{Усиление логики системы}
+
+В рамках данной работы усовершенствуем логический блок имеющийся ЭС.
+
+
+\begin{lstlisting}[label=lst:bulb_1, caption={Алгоритм работы ЭС}]
+IF:
+	Bulb in your house suddenly went out
+AND:
+	The other light in the room stay on
+THEN:
+	Change the bulb: Confidence = 10
+
+\end{lstlisting}
+
+\subsection{Обратная связь}
+
+\subsection{Числовые переменные и [[]] подстановки}
+
+\subsection{Переменные коллекции}
+
+\section{Разработка статической ЭС}
+
+\subsection{Переменные}
+
+\subsection{Дерево решений ЭС}
+
+\subsection{База знаний ЭС}
+
+\subsection{Пользовательский интерфейс}
+
+\newpage
+
+\bibliographystyle{plain}
+\addcontentsline{toc}{section}{Список литературы}
+\bibliography{refs}
+
+\end{document}
