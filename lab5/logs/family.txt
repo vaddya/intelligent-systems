@@ -1,0 +1,25 @@
+PS C:\Git\intelligent-systems\lab5\src\family\exe> cat ..\fa.txt
+clauses
+    person("Judith",female()).
+    person("Bill",male()).
+    person("John",male()).
+    person("Pam",female()).
+    parent("John","Judith").
+    parent("Bill","John").
+    parent("Pam","Bill").
+
+PS C:\Git\intelligent-systems\lab5\src\family\exe> .\family.exe
+Load data
+
+father test
+John is the father of Bill
+Bill is the father of Pam
+
+grandFather test
+John is the grandfather of Pam
+
+ancestor of Pam test
+Bill is the ancestor of Pam
+John is the ancestor of Pam
+Judith is the ancestor of Pam
+End of test

@@ -1,0 +1,2 @@
+PS C:\Git\intelligent-systems\lab5\src\project2\exe> .\project2.exe
+Иванов - book("Война и мир","Лев Толстой",publication("Просвещение",1990))

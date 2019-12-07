@@ -1,0 +1,4 @@
+PS C:\Git\intelligent-systems\lab5\src\project4\exe> .\project4.exe
+Sum = 5
+FSum = 6.06
+Maximum = 2

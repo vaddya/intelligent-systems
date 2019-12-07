@@ -1,0 +1,9 @@
+PS C:\Git\intelligent-systems\lab5\src\project1\exe> .\project1.exe
+london - england
+petersburg - russia
+kiev - ukraine
+pekin - asia
+warszawa - poland
+berlin - europe
+petersburg - europe
+warszawa - europe
