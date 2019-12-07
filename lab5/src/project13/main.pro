@@ -9,7 +9,7 @@ class predicates
     print_list : (dog_list).
 
 clauses
-    dogs(["лайка", "борзая", "дог", "болонка"]).
+    dogs(["Like", "Greyhound", "Great Dane", "Lapdog"]).
     print_list([]).
     print_list([X | Y]) :-
         stdIO::write(X),

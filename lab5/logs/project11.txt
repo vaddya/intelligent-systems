@@ -1,0 +1,2 @@
+PS C:\Git\intelligent-systems\lab5\src\project11\exe> .\project11.exe
+15

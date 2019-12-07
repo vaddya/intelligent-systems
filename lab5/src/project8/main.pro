@@ -9,12 +9,12 @@ class predicates
     make_cut : (person) determ.
 
 clauses
-    deti("Петя").
-    deti("Вася").
-    deti("Олег").
-    deti("Маша").
-    deti("Оля").
-    deti("Наташа").
+    deti("Petya").
+    deti("Vasya").
+    deti("Oleg").
+    deti("Masha").
+    deti("Olya").
+    deti("Natasha").
     show() :-
         deti(X),
         stdIO::write(X),
@@ -23,12 +23,12 @@ clauses
         !.
     show().
     make_cut(X) :-
-        X = "Олег".
+        X = "Oleg".
 
 end implement main
 
 goal
     console::init(),
-    stdIO::write("Это мальчики:"),
+    stdIO::write("These are boys:"),
     stdIO::nl(),
     main::show().

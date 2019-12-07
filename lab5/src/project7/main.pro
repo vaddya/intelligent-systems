@@ -4,10 +4,10 @@
 class predicates
     gorod : (symbol [out]) multi.
 clauses
-    gorod("Москва").
-    gorod("Минск").
-    gorod("Киев").
-    gorod("Омск").
+    gorod("Moscow").
+    gorod("Minsk").
+    gorod("Kiev").
+    gorod("Omsk").
     show() :-
         gorod(X),
         stdIO::write(X),
@@ -19,6 +19,6 @@ end implement main
 
 goal
     console::init(),
-    stdIO::write("Это города:"),
+    stdIO::write("Threse are cities:"),
     stdIO::nl(),
     main::show().

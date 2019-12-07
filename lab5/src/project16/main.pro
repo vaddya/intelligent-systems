@@ -57,19 +57,19 @@ clauses
     write_path([]).
     write_move(state(X, W, G, C), state(Y, W, G, C)) :-
         !,
-        stdIO::write("Мужик пересекает реку с ", X, " на ", Y),
+        stdIO::write("Мужик пересекает реку с ", X, " на ", Y, ". "),
         stdIO::nl().
     write_move(state(X, X, G, C), state(Y, Y, G, C)) :-
         !,
-        stdIO::write("Мужик везет волка с ", X, " берега на ", Y),
+        stdIO::write("Мужик везет волка с ", X, " берега на ", Y, ". "),
         stdIO::nl().
     write_move(state(X, W, X, C), state(Y, W, Y, C)) :-
         !,
-        stdIO::write("Мужик везет козу с ", X, " берега на ", Y),
+        stdIO::write("Мужик везет козу с ", X, " берега на ", Y, ". "),
         stdIO::nl().
     write_move(state(X, W, G, X), state(Y, W, G, Y)) :-
         !,
-        stdIO::write("Мужик везет капусту с ", X, " берега на ", Y),
+        stdIO::write("Мужик везет капусту с ", X, " берега на ", Y, ". "),
         stdIO::nl().
 
 clauses

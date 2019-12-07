@@ -12,8 +12,8 @@ clauses
         find_it(X, Y).
     run() :-
         console::init(),
-        find_it("болонка", ["лайка", "дог"]),
-        stdIO::write("да"),
+        find_it("Lapdog", ["Like", "Great Dane"]),
+        stdIO::write("Yes"),
         fail.
     run().
 

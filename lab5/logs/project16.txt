@@ -1,0 +1,9 @@
+PS C:\Git\intelligent-systems\lab5\src\project16\exe> .\project16.exe
+Решение:
+Мужик везет козу с west берега на east.
+Мужик пересекает реку с east на west.
+Мужик везет капусту с west берега на east.
+Мужик везет козу с east берега на west.
+Мужик везет волка с west берега на east.
+Мужик пересекает реку с east на west.
+Мужик везет козу с west берега на east.

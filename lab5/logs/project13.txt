@@ -1,0 +1,6 @@
+PS C:\Git\intelligent-systems\lab5\src\project13\exe> .\project13.exe
+["Like","Greyhound","Great Dane","Lapdog"]
+Like
+Greyhound
+Great Dane
+Lapdog

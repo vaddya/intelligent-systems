@@ -1,0 +1,6 @@
+PS C:\Git\intelligent-systems\lab5\src\project7\exe> .\project7.exe
+Threse are cities:
+Moscow
+Minsk
+Kiev
+Omsk

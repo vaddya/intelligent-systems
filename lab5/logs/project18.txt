@@ -1,0 +1,2 @@
+PS C:\Git\intelligent-systems\lab5\src\project18\exe> .\project18.exe
+Сергей родом из Москвы

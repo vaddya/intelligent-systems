@@ -15,7 +15,7 @@ clauses
         write_number(N + 1).
     run() :-
         console::init(),
-        stdIO::write("Это числа"),
+        stdIO::write("These are numbers:"),
         stdIO::nl(),
         main::write_number(1),
         fail.

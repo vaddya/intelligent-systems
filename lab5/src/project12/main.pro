@@ -20,7 +20,7 @@ clauses
         inform(A, C),
         move(N - 1, B, A, C).
     inform(Loc1, Loc2) :-
-        stdIO::write("Диск с ", Loc1, " на ", Loc2),
+        stdIO::write("Disc from ", Loc1, " to ", Loc2),
         stdIO::nl().
     run() :-
         console::init(),

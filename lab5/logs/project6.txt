@@ -1,0 +1,2 @@
+PS C:\Git\intelligent-systems\lab5\src\project6\exe> .\project6.exe
+hello

@@ -1,0 +1,3 @@
+PS C:\Git\intelligent-systems\lab5\src\project5\exe> .\project5.exe
+kitai - 9597000
+peru - 1285000

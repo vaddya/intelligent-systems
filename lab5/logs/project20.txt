@@ -1,0 +1,2 @@
+PS C:\Git\intelligent-systems\lab5\src\project20\exe> .\project20.exe
+Петров 187 см 93 кг

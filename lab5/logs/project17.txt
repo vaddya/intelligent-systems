@@ -1,0 +1,4 @@
+PS C:\Git\intelligent-systems\lab5\src\project17\exe> .\project17.exe
+Alex - third
+Nike - first
+Pier - second

@@ -1,0 +1,5 @@
+PS C:\Git\intelligent-systems\lab5\src\project8\exe> .\project8.exe
+These are boys:
+Petya
+Vasya
+Oleg
