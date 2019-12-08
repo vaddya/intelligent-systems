@@ -1,6 +1,4 @@
-﻿% Copyright
-
-implement main
+﻿implement main
     open core
 
 domains

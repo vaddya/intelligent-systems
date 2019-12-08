@@ -1,0 +1,2 @@
+PS C:\Git\intelligent-systems\lab6\src\task1\exe> .\task1.exe
+Витя, Юра, Миша
