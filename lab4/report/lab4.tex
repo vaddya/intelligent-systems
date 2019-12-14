@@ -1,0 +1,234 @@
+\include{settings}
+
+\begin{document}
+
+\include{title}
+
+\tableofcontents
+\newpage
+
+\section{Программа работы}
+
+\begin{enumerate}
+	\item Ознакомьтесь с методическим пособием Татжибаева О.А. Разработка экспертных систем [Текст]: методические указания к расчетно-графическим работам по дисциплине
+	«Системы искусственного интеллекта»\cite{tatj}.
+	\item Разработайте экспертную систему в соответствии с вариантами заданий на стр. 23-30 в	пособии.
+	\item Можно ли решить поставленную задачу проще без использования ЭС?
+	\item В каких областях, по Вашему мнению, использование ЭС потенциально опасно (или вредно)?
+\end{enumerate}
+
+\section{Разработка ЭС}
+
+\noindent Экспертная система по выбору оператора сотовой связи. Входные данные:
+
+\begin{enumerate}
+	\item зона уверенного приема сигнала;
+	\item стоимость роуминга;
+	\item предоставляемые услуги SMS, MMS, WAP
+	\item тарифные планы.
+\end{enumerate}
+
+\subsection{Переменные}
+
+Разработанная экспертная система включает в себя переменные типа \code{Static list}, отражающие критерии выбора оператора, переменную типа \code{Numeric} для стоимости роуминга, и переменные типа \code{Confidence}, использующиеся как возможные операторы сотовой связи (Теле2, МТС и Билайн).
+
+\begin{table}[H]
+	\centering
+	\caption{Список переменных}
+	\begin{tabular}{|c|l|c|}
+		\hline
+		Тип & \multicolumn{1}{c|}{Название} & Значение \\ \hline
+		\multirow{3}{*}{\code{Static list}}
+		& \code{Zone} (Зона обслуживания) & \code{[Country, World]}  \\ \cline{2-3}
+		& \code{Service} (Включенные услуги) & \code{[SMS, MMS, MAP]}   \\ \cline{2-3}
+		& \code{Tariff} (Тарифный план) & \code{[Gold, Silver]}    \\ \hline
+		\code{Numeric} & \code{Price} (Стоимость роуминга) & Number \\ \hline
+		\multirow{3}{*}{\code{Confidence}}
+		& \code{Tele2}   & 10 \\ \cline{2-3}
+		& \code{MTS}     & 10 \\ \cline{2-3}
+		& \code{Beeline} & 10 \\ \hline
+	\end{tabular}
+\end{table}
+
+\subsection{Дерево решений ЭС}
+
+Приведем дерево решений разработанной ЭС.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=0.6\linewidth,angle=-90]{tree}
+	\caption{Дерево решений ЭС}
+\end{figure}
+
+\subsection{База знаний ЭС}
+
+Приведем описание логического блока ЭС.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{logic}
+	\caption{Логический блок ЭС}
+\end{figure}
+
+\begin{lstlisting}[caption={Алгоритм работы ЭС}]
+IF:
+	Zone Country
+AND:
+	[Service.COUNT] > 1
+AND:
+	[Price] < 100
+AND:
+	Tariff Gold
+THEN:
+	Tele2: Confidence = 10
+
+IF:
+	Zone Country
+AND:
+	[Service.COUNT] > 1
+AND:
+	[Price] < 100
+AND:
+	Tariff Silver
+THEN:
+	MTS: Confidence = 10
+
+
+IF:
+	Zone Country
+AND:
+	[Service.COUNT] > 1
+AND:
+	[Price] >= 100
+THEN:
+	Beeline: Confidence = 10
+
+IF:
+	Zone Country
+AND:
+	[Service.COUNT] = 1
+AND:
+	Tariff Gold
+THEN:
+	Tele2: Confidence = 10
+
+IF:
+	Zone Country
+AND:
+	[Service.COUNT] = 1
+AND:
+	Tariff Silver
+AND: 
+	[Service.CHECK WAP]
+THEN:
+	MTS: Confidence = 10
+
+IF:
+	Zone Country
+AND:
+	[Service.COUNT] = 1
+AND:
+	Tariff Silver
+AND:
+	![Service.CHECK WAP] 
+THEN:
+	Tele2: Confidence = 10
+
+IF:
+	Zone Country
+AND:
+	[Service.COUNT] = 0 
+THEN:
+	Tele2: Confidence = 10
+
+IF:
+	Zone World
+AND:
+	[Price] < 1000
+AND:
+	[Service.CHECK MMS]
+AND:
+	Tariff Gold
+THEN:
+	Tele2: Confidence = 10
+
+IF:
+	Zone World
+AND:
+	[Price] < 1000
+AND:
+	[Service.CHECK MMS]
+AND:
+	Tariff Silver
+THEN:
+	MTS: Confidence = 10
+
+IF:
+	Zone World
+AND:
+	[Price] < 1000
+AND:
+	![Service.CHECK MMS]
+THEN:
+	Beeline: Confidence = 10
+
+IF:
+	Zone World
+AND:
+	[Price] >= 1000
+THEN:
+	MTS: Confidence = 10
+\end{lstlisting}
+
+\subsection{Пользовательский интерфейс}
+
+Для ЭС был разработан интерфейс, схожий с примерами из лабораторных работ.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{tariff_1}
+	\caption{Пример вопроса о зоне покрытия}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{tariff_2}
+	\caption{Пример вопроса о включенных услугах}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{tariff_3}
+	\caption{Пример вопроса о стоимости роуминга}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{tariff_4}
+	\caption{Пример вопроса о тарифном плане}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{tariff_5}
+	\caption{Пример результата работы ЭС}
+\end{figure}
+
+\section{Выводы}
+
+В ходе лабораторной работы была разработана экспертная система для выбора оператора сотовой связи. Полученная ЭС учитывает зону покрытия оператора, дополнительные услуги, тарифный план и стоимость роуминга. Из совокупности этих факторов составляется рекомендация, представляющая собой одного из операторов связи.
+
+\paragraph{Можно ли решить поставленную задачу проще без использования ЭС?}
+
+Задачу можно решить без помощи экспертной системы, однако временные затраты на создание такого решения могут увеличиться. В простом примере, как в рассмотренном выше, экспертная система играет роль инструмента для запроса из обычной базы данных с определенными параметрами (тариф, стоимость, услуги).  Тем не менее, для более сложного примера, ЭС может быть успешно использована благодаря механизму обратной связи с выведением фактом через наводящие вопросы пользователю.
+
+\paragraph{В каких областях, по Вашему мнению, использование ЭС потенциально опасно (или вредно)?}
+
+Опасность может представлять использование ЭС в областях, где от ее решения может зависеть жизнь человека (например, в медицине). Вредным (или излишним) может быть использование ЭС в областях, где накопленные знания быстро устаревают и теряю ценность.
+
+\bibliographystyle{plain}
+\addcontentsline{toc}{section}{Список литературы}
+\bibliography{refs}
+
+\end{document}

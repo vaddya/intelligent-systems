@@ -289,7 +289,8 @@ THEN:
 	\begin{tabular}{|c|l|c|}
 		\hline
 		Тип                          & \multicolumn{1}{c|}{Название}   & Комментарий       \\ \hline
-		\multirow{9}{*}{Static list} & \scode{Q_Problem}               & Disk problem is   \\ \cline{2-3} 
+		\multirow{9}{*}{Static list}
+		& \scode{Q_Problem}                                            & Disk problem is   \\ \cline{2-3} 
 		& \scode{Q_Doesnt_work_when_turned_on}                         & Possible cause is \\ \cline{2-3} 
 		& \scode{ Q_Fuse_box_burns_when_turned_on}                     & Possible cause is \\ \cline{2-3} 
 		& \scode{Q_Pointer_goes_to_the_end_of_the_scale}               & Possible cause is \\ \cline{2-3} 
@@ -298,7 +299,8 @@ THEN:
 		& \scode{Q_The_instrument_pointer_moves_slowly}                & Possible cause is \\ \cline{2-3} 
 		& \scode{Q_Chart_disk_does_not_rotate}                         & Possible cause is \\ \cline{2-3} 
 		& \scode{Q_The_readings_do_not_correspond_the_true_value}s     & Possible cause is \\ \hline
-		\multirow{13}{*}{Confidence} & \scode{A_No_voltage_in_the_network}  & 10           \\ \cline{2-3} 
+		\multirow{13}{*}{Confidence}
+		& \scode{A_No_voltage_in_the_network}                          & 10                \\ \cline{2-3} 
 		& \scode{A_Burned_insert_fusible}                              & 10                \\ \cline{2-3} 
 		& \scode{A_Faulty_switch}                                      & 10                \\ \cline{2-3} 
 		& \scode{A_Short_circuit}                                      & 10                \\ \cline{2-3} 
@@ -320,7 +322,7 @@ THEN:
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\linewidth]{tree}
+	\includegraphics[height=0.45\linewidth,angle=-90]{tree}
 	\caption{Дерево решений ЭС}
 \end{figure}
 
@@ -421,6 +423,8 @@ THEN:
 	Replace the sensor or repair damage to the connecting wires.: Confidence = 10
 \end{lstlisting}
 
+\newpage
+
 \subsection{Пользовательский интерфейс}
 
 Для ЭС был разработан интерфейс, схожий с примерами из лабораторных работ.
@@ -436,6 +440,8 @@ THEN:
 	\includegraphics[width=0.7\linewidth]{disk_2}
 	\caption{Пример результата работы ЭС}
 \end{figure}
+
+\newpage
 
 \section{Выводы}
 
