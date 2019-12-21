@@ -13,3 +13,7 @@
 deb
 exe
 obj
+
+.DS_Store
+.ipynb_checkpoints/
+
