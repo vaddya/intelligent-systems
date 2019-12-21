@@ -72,6 +72,14 @@
 \newcommand{\equipollence}{\quad\Leftrightarrow\quad}
 \newcommand{\no}[1]{\overline{#1}}
 \newcommand{\code}[1]{\lstinline[language=none]|#1|}
+\newcommand{\data}[2]{
+\paragraph{Описание.} #2.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{#1}
+	\caption{Результат работы на данных #1.}
+\end{figure}
+}
 
 \graphicspath{{../pics/}}
 \captionsetup{justification=centering,margin=1cm}
